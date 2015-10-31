@@ -33,7 +33,7 @@ def get_thermostat(host_address=None):
     if host_address is None:
         discovered_addresses = discover.discover_address()
         if len(discovered_addresses) > 1:
-           raise IOError("Found %d thermostats and I don't know which to pick." % len(thermostats))
+           raise IOError("Found %d thermostats and I don't know which to pick." % len(discovered_addresses))
         host_address = discovered_addresses[0]
     initial = CommonThermostat(host_address)
     model = initial.model.get('raw')
